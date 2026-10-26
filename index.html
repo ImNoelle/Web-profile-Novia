@@ -1,502 +1,658 @@
 <!DOCTYPE html>
-<html lang="id" class="scroll-smooth">
+<html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio - Novia Elza Nanda</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome Icons CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Font Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                    colors: {
-                        skybrand: {
-                            50: '#f0f9ff',
-                            100: '#e0f2fe',
-                            200: '#bae6fd',
-                            300: '#7dd3fc',
-                            400: '#38bdf8',
-                            500: '#0ea5e9',
-                            600: '#0284c7',
-                            700: '#0369a1',
-                            800: '#075985',
-                            900: '#0c4a6e',
-                        }
-                    }
-                }
-            }
-        }
-    </script>
+    <title>Novia Elza Nanda | Portfolio Mahasiswa Sistem Informasi</title>
+    <meta name="description"
+        content="Website profil pribadi Novia Elza Nanda, Mahasiswa Sistem Informasi dengan minat pada Web Development, UI/UX, dan eksplorasi teknologi modern.">
+
+    <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- Main Stylesheet -->
     <link rel="stylesheet" href="style.css">
-
 </head>
-<body class="font-sans bg-gradient-to-b from-skybrand-100 via-skybrand-50 to-white text-slate-800 antialiased selection:bg-skybrand-400 selection:text-white relative overflow-x-hidden min-h-screen">
 
-    <!-- 1. PRELOADER ANIMASI DENGAN LEDAKAN AWAN RAKSASA & BUNGA -->
-    <div id="preloader" class="fixed inset-0 z-50 bg-skybrand-100 flex flex-col items-center justify-center transition-opacity duration-700 overflow-hidden">
-        <div class="relative flex flex-col items-center">
-            
-            <!-- LAPISAN MEKAR -->
-            <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
-                <!-- AWAN-AWAN JUMBO -->
-                <div class="absolute text-white text-[12rem] sm:text-[16rem] animate-jumbo-explode" style="--tw-x: -240px; --tw-y: -200px; animation-delay: 0s;">
-                    <i class="fa-solid fa-cloud filter drop-shadow-[0_15px_30px_rgba(255,255,255,0.95)]"></i>
-                </div>
-                <div class="absolute text-white/95 text-[11rem] sm:text-[14rem] animate-jumbo-explode" style="--tw-x: 260px; --tw-y: -180px; animation-delay: 0.4s;">
-                    <i class="fa-solid fa-cloud filter drop-shadow-[0_15px_30px_rgba(255,255,255,0.95)]"></i>
-                </div>
-                <div class="absolute text-white/95 text-[12rem] sm:text-[15rem] animate-jumbo-explode" style="--tw-x: -280px; --tw-y: 160px; animation-delay: 0.2s;">
-                    <i class="fa-solid fa-cloud filter drop-shadow-[0_15px_30px_rgba(255,255,255,0.95)]"></i>
-                </div>
-                <div class="absolute text-white text-[11rem] sm:text-[14rem] animate-jumbo-explode" style="--tw-x: 250px; --tw-y: 200px; animation-delay: 0.6s;">
-                    <i class="fa-solid fa-cloud filter drop-shadow-[0_15px_30px_rgba(255,255,255,0.95)]"></i>
-                </div>
-                
-                <!-- BUNGA REMEKAH -->
-                <div class="absolute scale-0 text-amber-300 text-4xl sm:text-5xl animate-jumbo-explode" style="--tw-x: 280px; --tw-y: -20px; animation-delay: 0.3s;">
-                    <i class="fa-solid fa-spa filter drop-shadow-md"></i>
-                </div>
-                <div class="absolute scale-0 text-pink-300 text-5xl sm:text-6xl animate-jumbo-explode" style="--tw-x: -290px; --tw-y: -40px; animation-delay: 0.5s;">
-                    <i class="fa-solid fa-spa filter drop-shadow-md"></i>
-                </div>
-                <div class="absolute scale-0 text-sky-300 text-4xl sm:text-5xl animate-jumbo-explode" style="--tw-x: 40px; --tw-y: 260px; animation-delay: 0.15s;">
-                    <i class="fa-solid fa-spa filter drop-shadow-md"></i>
-                </div>
+<body class="dark-theme">
+
+    <!-- Interactive Dynamic Cursor & Rightward Glow Elements -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="directional-right-beam" id="directionalBeam"></div>
+    <div class="ambient-right-glow" id="ambientRightGlow"></div>
+
+    <!-- Background Decorative Grid & Glow Mesh -->
+    <div class="bg-mesh">
+        <div class="mesh-orb orb-1"></div>
+        <div class="mesh-orb orb-2"></div>
+        <div class="mesh-orb orb-3"></div>
+        <div class="grid-overlay"></div>
+    </div>
+
+    <!-- NAVBAR -->
+    <header class="navbar-wrapper" id="navbar">
+        <nav class="nav-container">
+            <a href="#hero" class="nav-brand" aria-label="Beranda">
+                <span class="brand-text">ImNoelle</span>
+                <span class="brand-dot"></span>
+            </a>
+
+            <div class="nav-menu" id="navMenu">
+                <ul class="nav-links">
+                    <li><a href="#hero" class="nav-link active">Beranda</a></li>
+                    <li><a href="#about" class="nav-link">Tentang Saya</a></li>
+                    <li><a href="#experience" class="nav-link">Riwayat & Edukasi</a></li>
+                    <li><a href="#portfolio" class="nav-link">Portofolio</a></li>
+                    <li><a href="#contact" class="nav-link">Kontak</a></li>
+                </ul>
             </div>
 
-            <!-- BULATAN LOADING UTAMA -->
-            <div class="relative mb-6 z-10">
-                <div class="w-20 h-20 rounded-full bg-skybrand-300/40 animate-ping absolute inset-0"></div>
-                <div class="w-20 h-20 rounded-full bg-white shadow-2xl flex items-center justify-center text-skybrand-500 text-3xl relative z-10 animate-bounce">
-                    <i class="fa-solid fa-cloud"></i>
-                </div>
-            </div>
-            
-            <p class="text-skybrand-900 font-extrabold text-lg tracking-wide flex items-center gap-2 bg-white/90 px-6 py-2 rounded-full shadow-lg border border-white/50 z-10 backdrop-blur-sm">
-                <span>Memuat Portofolio</span>
-                <i class="fa-solid fa-circle-notch animate-spin text-skybrand-600"></i>
-            </p>
-        </div>
-    </div>
-
-    <!-- 2. AWAN -->
-  <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden cloud-layer" aria-hidden="true">
-    <div class="absolute top-20 -left-10 w-32 sm:w-48 text-white/95 filter drop-shadow-[0_4px_6px_rgba(255,255,255,0.8)] animate-cloud-left">
-      <svg viewBox="0 0 200 120" fill="currentColor"><path d="M30 90 A30 30 0 0 1 40 35 A40 40 0 0 1 110 25 A35 35 0 0 1 165 48 A25 25 0 0 1 175 90 Z"/></svg>
-    </div>
-    <div class="absolute top-20 left-[24%] w-36 sm:w-52 text-white/90 filter drop-shadow-[0_4px_8px_rgba(255,255,255,0.7)] animate-cloud-right">
-      <svg viewBox="0 0 200 120" fill="currentColor"><path d="M25 90 A30 30 0 0 1 38 38 A42 42 0 0 1 110 24 A38 38 0 0 1 165 48 A25 25 0 0 1 180 90 Z"/></svg>
-    </div>
-    <div class="absolute top-24 right-[30%] w-44 sm:w-60 text-white/95 filter drop-shadow-[0_4px_8px_rgba(255,255,255,0.8)] animate-cloud-left">
-      <svg viewBox="0 0 200 120" fill="currentColor"><path d="M30 90 A30 30 0 0 1 40 35 A40 40 0 0 1 110 25 A35 35 0 0 1 165 48 A25 25 0 0 1 175 90 Z"/></svg>
-    </div>
-    <div class="absolute top-20 -right-12 w-36 sm:w-52 text-white/90 filter drop-shadow-[0_4px_6px_rgba(255,255,255,0.7)] animate-cloud-right">
-      <svg viewBox="0 0 200 120" fill="currentColor"><path d="M25 90 A30 30 0 0 1 38 38 A42 42 0 0 1 110 24 A38 38 0 0 1 165 48 A25 25 0 0 1 180 90 Z"/></svg>
-    </div>
-    <div class="absolute top-[48%] -left-16 w-44 sm:w-56 text-white/95 filter drop-shadow-[0_4px_8px_rgba(255,255,255,0.8)] animate-cloud-right">
-      <svg viewBox="0 0 200 120" fill="currentColor"><path d="M30 90 A30 30 0 0 1 40 35 A40 40 0 0 1 110 25 A35 35 0 0 1 165 48 A25 25 0 0 1 175 90 Z"/></svg>
-    </div>
-    <div class="absolute top-[64%] left-[6%] w-56 sm:w-72 text-white/95 filter drop-shadow-[0_6px_10px_rgba(255,255,255,0.9)] animate-cloud-left">
-      <svg viewBox="0 0 200 120" fill="currentColor"><path d="M25 90 A30 30 0 0 1 38 38 A42 42 0 0 1 110 24 A38 38 0 0 1 165 48 A25 25 0 0 1 180 90 Z"/></svg>
-    </div>
-    <div class="absolute top-[68%] left-[46%] w-56 sm:w-72 text-white/90 filter drop-shadow-[0_4px_8px_rgba(255,255,255,0.7)] animate-cloud-right">
-      <svg viewBox="0 0 200 120" fill="currentColor"><path d="M30 90 A30 30 0 0 1 40 35 A40 40 0 0 1 110 25 A35 35 0 0 1 165 48 A25 25 0 0 1 175 90 Z"/></svg>
-    </div>
-    <div class="absolute top-[60%] -right-12 w-44 sm:w-64 text-white/95 filter drop-shadow-[0_4px_8px_rgba(255,255,255,0.8)] animate-cloud-left">
-      <svg viewBox="0 0 200 120" fill="currentColor"><path d="M25 90 A30 30 0 0 1 38 38 A42 42 0 0 1 110 24 A38 38 0 0 1 165 48 A25 25 0 0 1 180 90 Z"/></svg>
-    </div>
-  </div>
-
-
-<!-- NAVBAR -->
-<div class="fixed top-4 left-0 right-0 z-40 px-4 sm:px-6 lg:px-8">
-    <nav class="max-w-7xl mx-auto bg-white/60 backdrop-blur-md rounded-full border border-white/40 shadow-lg shadow-skybrand-400/5 transition-all duration-300">
-        <div class="px-6 sm:px-8">
-            <div class="flex items-center justify-between h-20 py-2">
-                
-                <!-- Logo Utama -->
-                <a href="#Home" class="flex items-center text-xl sm:text-3xl font-extrabold tracking-tight text-skybrand-900 group">
-                    <span>I'm<span class="text-skybrand-600">Noelle</span></span>
+            <div class="nav-actions">
+                <a href="#contact" class="btn-primary-glow btn-nav">
+                    <span>Hubungi Saya</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
                 </a>
 
-                <!-- Desktop Links  -->
-                <div class="hidden md:flex items-center space-x-6 font-bold text-slate-700 text-base ml-auto pr-12">
-                    <a href="#Home" class="hover:text-skybrand-600 transition-colors py-1">Home</a>
-                    <a href="#About Me" class="hover:text-skybrand-600 transition-colors py-1">About Me</a>
-                    <a href="#Education" class="hover:text-skybrand-600 transition-colors py-1">Education</a>
-                    <a href="#Project" class="hover:text-skybrand-600 transition-colors py-1">Project</a>
-                </div>
-
-                <!-- Tombol Hubungi Saya -->
-                <div class="hidden md:block">
-                    <a href="#Contact" class="inline-flex items-center gap-2 bg-skybrand-600 hover:bg-skybrand-700 text-white font-semibold text-sm px-6 py-2.5 rounded-full shadow-md shadow-skybrand-500/20 hover:shadow-lg transition-all transform hover:-translate-y-0.5">
-                        <i class="fa-regular fa-paper-plane me-1"></i> Hubungi Saya
-                    </a>
-                </div>
-
-                <!-- Mobile Menu Button -->
-                <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" type="button" class="text-slate-700 hover:text-skybrand-600 p-2 rounded-lg focus:outline-none">
-                        <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
-                    </button>
-                </div>
+                <!-- Mobile Menu Toggle Button -->
+                <button class="nav-toggle" id="navToggle" aria-label="Buka Menu Navigasi" aria-expanded="false">
+                    <span class="toggle-bar"></span>
+                    <span class="toggle-bar"></span>
+                    <span class="toggle-bar"></span>
+                </button>
             </div>
-        </div>
+        </nav>
+    </header>
 
-        <!-- Mobile Menu Dropdown -->
-        <div id="mobile-menu" class="hidden md:hidden border-t border-slate-100 bg-white/95 backdrop-blur-lg px-6 pt-2 pb-6 space-y-3 rounded-b-[2rem] shadow-xl mt-1">
-            <a href="#Home" class="mobile-link block px-3 py-2 rounded-lg text-slate-700 font-medium hover:bg-skybrand-50">Home</a>
-            <a href="#About Me" class="mobile-link block px-3 py-2 rounded-lg text-slate-700 font-medium hover:bg-skybrand-50">About Me</a>
-            <a href="#Education" class="mobile-link block px-3 py-2 rounded-lg text-slate-700 font-medium hover:bg-skybrand-50">Education</a>
-            <a href="#Project" class="mobile-link block px-3 py-2 rounded-lg text-slate-700 font-medium hover:bg-skybrand-50">Project</a>
-            <a href="#Contact" class="mobile-link block w-full text-center bg-skybrand-600 text-white font-medium px-4 py-2.5 rounded-full shadow mt-2">Hubungi Saya</a>
-        </div>
-    </nav>
-</div>
+    <main>
+        <!-- 1. HERO SECTION (HALAMAN UTAMA) -->
+        <section class="hero-section" id="hero">
+            <div class="container hero-container">
 
-<!-- HERO SECTION -->
-<section id="Home" class="min-h-screen w-full flex flex-col justify-center pt-20 mt-8 pb-16 relative z-10">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div class="flex flex-col lg:flex-row items-center justify-between gap-12 w-full mt-12">
-            
-            <!-- KIRI: Nama, Deskripsi, Tombol & Card -->
-            <div class="w-full lg:w-7/12 text-center lg:text-left space-y-6 order-2 lg:order-1 lg:pl-16 flex flex-col justify-center">
-                
-                <!-- Info Nama & Kampus (Ukuran Teks Diperkecil Sedikit) -->
-                <div class="space-y-3">
-                    <p class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
-                        Halo, Saya
-                    </p>
-                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-skybrand-900 tracking-tight leading-tight">
-                        Novia Elza Nanda
-                    </h2>
-                    <p class="text-slate-600 text-sm sm:text-base leading-relaxed max-w-xl mx-auto lg:mx-0">
-                        Seorang mahasiswi Sistem Informasi angkatan 2026 
-                        Universitas Tanjungpura, Kalimantan Barat, Indonesia.
-                    </p>
-                </div>
-                
-                <!-- Tombol CTA -->
-                <div class="pt-1 flex justify-center lg:justify-start">
-                    <a href="#Contact" class="inline-flex items-center gap-2 bg-skybrand-600 hover:bg-skybrand-700 text-white font-semibold text-sm px-6 py-3 rounded-full shadow-lg shadow-skybrand-500/25 hover:shadow-xl transition-all transform hover:-translate-y-0.5">
-                        <i class="fa-solid fa-paper-plane text-xs"></i>
-                        <span>Hubungi Saya</span>
-                    </a>
+                <!-- Background Typography Watermark -->
+                <div class="hero-watermark">IMNOELLE</div>
+
+                <!-- Left Column: Big Inspiring Heading & Quick Intro -->
+                <div class="hero-content-left">
+                    <h1 class="hero-main-title">
+                        Hidup Adalah Pilihan, <span class="text-gradient-blue">Tentukan Yang Terbaik.</span>
+                    </h1>
+
+                    <div class="hero-stats-card">
+                        <div class="stat-item">
+                            <span class="stat-number">Sem. 1</span>
+                            <span class="stat-label">Sedang Berjalan</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <span class="stat-number">IPK</span>
+                            <span class="stat-label">-</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <span class="stat-number">Level</span>
+                            <span class="stat-label">Adaptasi</span>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- CARD DI KIRI BAWAH -->
-                <div class="pt-2 max-w-md mx-auto lg:mx-0 w-full">
-                    <div class="bg-white/95 backdrop-blur-md p-5 sm:p-6 rounded-2xl shadow-xl shadow-skybrand-200/50 border border-skybrand-100 text-left space-y-2">
-                        <h3 class="text-base font-extrabold text-slate-900 flex items-center gap-2">
-                            ✨ Target & Eksplorasi
-                        </h3>
-                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed text-justify">
-                            Sedang beradaptasi dengan dunia perkuliahan Sistem Informasi, mengeksplorasi logika teknologi, serta mengasah kemampuan soft dan hard skill.
-                        </p>
-                        <div class="pt-1">
-                            <a href="#About Me" class="inline-flex items-center gap-1.5 text-xs font-bold text-skybrand-600 hover:text-skybrand-700 group transition-colors">
-                                <span>About Me</span>
-                                <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                <!-- Center Column: Profile Image with Blue Aura Lighting -->
+                <div class="hero-visual-center">
+                    <div class="portrait-glow-backdrop"></div>
+                    <div class="portrait-frame">
+                        <img src="Assets/pt.png" alt="Novia Elza Nanda - Mahasiswa Sistem Informasi"
+                            class="portrait-img" id="heroPortrait">
+                        <div class="portrait-overlay-gradient"></div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Personal Bio & Call to Actions -->
+                <div class="hero-content-right">
+                    <div class="role-pill-badge">
+                        <span class="badge-dot"></span>
+                        <span>SYSTEM INFORMATION 2026</span>
+                    </div>
+
+                    <h2 class="hero-personal-name">Novia Elza Nanda</h2>
+
+                    <p class="hero-summary-text text-justify">
+                        Halo! Saya adalah mahasiswa aktif program studi <strong>Sistem Informasi</strong> yang sedang
+                        beradaptasi dengan dunia perkuliahan Sistem Informasi,
+                        mengeksplorasi logika teknologi, serta mengasah kemampuan soft dan hard skill.
+                    </p>
+
+                    <div class="hero-cta-group">
+                        <a href="#about" class="btn-primary-dark" id="btnExplore">
+                            <span>Jelajahi Profil</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+
+                        <a href="#experience" class="btn-secondary-outline">
+                            <span>Lihat Riwayat</span>
+                        </a>
+                    </div>
+
+                    <!-- Social Quick Links in Hero -->
+                    <div class="hero-quick-socials">
+                        <span class="socials-label">Sosial Media:</span>
+                        <div class="social-icons-row">
+                            <a href="https://github.com/ImNoelle" target="_blank" rel="noopener noreferrer"
+                                class="social-mini-btn" aria-label="GitHub">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+                                </svg>
+                            </a>
+                            <a href="https://www.linkedin.com/in/novia-elza-nanda-41a5a8446/" target="_blank"
+                                rel="noopener noreferrer" class="social-mini-btn" aria-label="LinkedIn">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                                </svg>
+                            </a>
+                            <a href="https://www.instagram.com/nandainblue_?dlrf=MXByZW1tNzJmY2JkZg==" target="_blank"
+                                rel="noopener noreferrer" class="social-mini-btn" aria-label="Instagram">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                                </svg>
+                            </a>
+                            <a href="mailto:h1101261003@student.untan.ac.id" class="social-mini-btn" aria-label="Email">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path
+                                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                    </path>
+                                    <polyline points="22,6 12,13 2,6"></polyline>
+                                </svg>
                             </a>
                         </div>
                     </div>
                 </div>
 
             </div>
+        </section>
 
-            <!-- KANAN: Foto Profil Besar Kotak -->
-            <div class="w-full lg:w-5/12 flex justify-center items-center order-1 lg:order-2">
-                <div class="relative w-full max-w-xs sm:max-w-sm aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-skybrand-100 group">
-                    <img src="asset/nov.jpg" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out" alt="Foto Novia Elza Nanda">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/20 via-transparent to-transparent pointer-events-none"></div>
-                </div>
-            </div>
+        <!-- 2. TENTANG SAYA (ABOUT ME) -->
+        <section class="about-section" id="about">
+            <div class="container">
 
-        </div>
-    </div>
-</section>
-
-
-    <!-- TENTANG SAYA -->
-    <section id="About Me" class="py-20 bg-white/90 backdrop-blur-md border-y border-skybrand-100 relative z-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-16">
-                <h2 class="text-xs font-bold uppercase tracking-widest text-skybrand-600 mb-2">Profil Ringkas</h2>
-                <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900">About Me</h3>
-                <div class="w-16 h-1 bg-skybrand-500 mx-auto mt-4 rounded-full"></div>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                <div class="lg:col-span-7 space-y-6 text-slate-600 text-sm sm:text-base leading-relaxed text-justify">
-                    <p class="text-lg text-slate-800 font-semibold">
-                        Halo! Saya Novia Elza Nanda mahasiswi Sistem Informasi yang memiliki semangat untuk terus belajar, mencoba hal baru, dan mengembangkan diri.
+                <div class="section-header-compact">
+                    <span class="section-tag-blue">TENTANG DIRI SAYA —</span>
+                    <h2 class="section-title">Dedikasi Belajar & Antusiasme Teknologi</h2>
+                    <p class="section-subtitle">
+                        Kombinasi antara rasa ingin tahu yang tinggi, pemahaman alur bisnis, serta passion dalam
+                        teknologi informasi.
                     </p>
-                    <p>
-                        Sebagai mahasiswi yang baru memulai perjalanan di dunia perkuliahan, saya tertarik untuk mengenal lebih jauh dunia teknologi informasi, khususnya dalam pengembangan aplikasi dan desain antarmuka pengguna (UI/UX). Saya ingin memahami bagaimana teknologi dapat dikembangkan menjadi sesuatu yang bermanfaat dan memudahkan aktivitas sehari-hari.
-                    </p>
-                    <p>
-                        Di luar perkuliahan, saya senang menikmati waktu dengan hal-hal sederhana, seperti mendengarkan musik, membaca novel, dan menikmati suasana yang tenang. Bagi saya, belajar adalah sebuah proses untuk terus bertumbuh, menemukan hal-hal baru, dan mengenal potensi diri.
-                    </p>
-                    
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
-                        <div class="p-4 rounded-2xl bg-skybrand-50/80 border border-skybrand-100 flex items-start gap-3">
-                            <i class="fa-solid fa-heart text-skybrand-600 text-xl mt-1"></i>
-                            <div>
-                                <h4 class="font-bold text-slate-800 text-sm">Hobi</h4>
-                                <p class="text-xs text-slate-500 mt-0.5">Eksplorasi Desain, Musik, & Membaca</p>
+                </div>
+
+                <div class="about-grid">
+                    <!-- Main Bio Card -->
+                    <div class="about-bio-card glow-card">
+                        <div class="card-icon-header">
+                            <div class="circle-icon-glow">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00e5ff"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
                             </div>
+                            <span class="card-badge">PROFIL SINGKAT</span>
                         </div>
-                        <div class="p-4 rounded-2xl bg-skybrand-50/80 border border-skybrand-100 flex items-start gap-3">
-                            <i class="fa-solid fa-compass text-skybrand-600 text-xl mt-1"></i>
-                            <div>
-                                <h4 class="font-bold text-slate-800 text-sm">Minat</h4>
-                                <p class="text-xs text-slate-500 mt-0.5">Konsep UI/UX & Dasar Web Dev</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="lg:col-span-5">
-                    <div class="p-8 rounded-3xl bg-gradient-to-br from-skybrand-900 via-skybrand-800 to-indigo-900 text-white shadow-xl relative overflow-hidden">
-                        <i class="fa-solid fa-cloud absolute -bottom-8 -right-8 text-9xl text-white/10"></i>
-                        <div class="relative z-10 space-y-4">
-                            <div class="w-12 h-12 rounded-2xl bg-white/10 backdrop-blur-md flex items-center justify-center text-skybrand-300 text-2xl">
-                                <i class="fa-solid fa-lightbulb"></i>
-                            </div>
-                            <blockquote class="text-lg font-medium italic text-skybrand-50 text-justify">
-                                "Keberhasilan bukanlah milik orang yang pintar, keberhasilan adalah milik mereka yang senantiasa berusaha."
-                            </blockquote>
-                            <div class="pt-4 border-t border-white/15">
-                                <p class="font-bold text-white text-sm">B.J. Habibie</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- PENGALAMAN & RIWAYAT PENDIDIKAN -->
-    <section id="Education" class="py-20 bg-skybrand-50/60 relative z-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-16">
-                <h2 class="text-xs font-bold uppercase tracking-widest text-skybrand-600 mb-2">Jejak Langkah</h2>
-                <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900">Education</h3>
-                <div class="w-16 h-1 bg-skybrand-500 mx-auto mt-4 rounded-full"></div>
-            </div>
-
-            <!-- Grid Cards Pendidikan -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                
-                <div onclick="openModal('tk')" class="cursor-pointer group bg-white p-6 rounded-3xl border border-skybrand-100 shadow-sm hover:shadow-xl hover:border-skybrand-400 transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="px-3 py-1 bg-skybrand-50 text-skybrand-600 border border-skybrand-200 rounded-full text-xs font-bold">2013-2014</span>
-                            <i class="fa-solid fa-child-reaching text-2xl text-slate-300 group-hover:text-skybrand-500 transition-colors"></i>
-                        </div>
-                        <h4 class="text-xl font-bold text-slate-800 group-hover:text-skybrand-600 transition-colors">TK Kartika XVII-07</h4>
-                        <p class="text-sm font-medium text-slate-500 mt-1">Taman Kanak-kanak</p>
-                        <p class="text-xs text-slate-400 mt-3 text-justify">Awal mengenal dunia bermain, sosialisasi, dan belajar dasar mewarnai serta membaca.</p>
-                    </div>
-            
-                </div>
-
-                <div onclick="openModal('sd')" class="cursor-pointer group bg-white p-6 rounded-3xl border border-skybrand-100 shadow-sm hover:shadow-xl hover:border-skybrand-400 transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="px-3 py-1 bg-skybrand-50 text-skybrand-600 border border-skybrand-200 rounded-full text-xs font-bold">2014 - 2020</span>
-                            <i class="fa-solid fa-school text-2xl text-slate-300 group-hover:text-skybrand-500 transition-colors"></i>
-                        </div>
-                        <h4 class="text-xl font-bold text-slate-800 group-hover:text-skybrand-600 transition-colors">SD Negeri 02 Anjongan</h4>
-                        <p class="text-sm font-medium text-slate-500 mt-1">Sekolah Dasar</p>
-                        <p class="text-xs text-slate-400 mt-3 text-justify">Membangun pengetahuan dasar dalam berbagai mata pelajaran, mengembangkan kemampuan berpikir, serta belajar bekerja sama melalui kegiatan sekolah.</p>
-                    </div>
-                </div>
-
-                <div onclick="openModal('smp')" class="cursor-pointer group bg-white p-6 rounded-3xl border border-skybrand-100 shadow-sm hover:shadow-xl hover:border-skybrand-400 transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="px-3 py-1 bg-skybrand-50 text-skybrand-600 border border-skybrand-200 rounded-full text-xs font-bold">2020 - 2023</span>
-                            <i class="fa-solid fa-shapes text-2xl text-slate-300 group-hover:text-skybrand-500 transition-colors"></i>
-                        </div>
-                        <h4 class="text-xl font-bold text-slate-800 group-hover:text-skybrand-600 transition-colors">SMP Negeri 01 Anjongan</h4>
-                        <p class="text-sm font-medium text-slate-500 mt-1">Sekolah Menengah Pertama</p>
-                        <p class="text-xs text-slate-400 mt-3 text-justify">Mengembangkan kemampuan akademik serta mengeksplorasi minat dan bakat melalui kegiatan sekolah.</p>
-                    </div>
-                
-                </div>
-
-                <div onclick="openModal('sma')" class="cursor-pointer group bg-white p-6 rounded-3xl border border-skybrand-100 shadow-sm hover:shadow-xl hover:border-skybrand-400 transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="px-3 py-1 bg-skybrand-50 text-skybrand-600 border border-skybrand-200 rounded-full text-xs font-bold">2023 - 2026</span>
-                            <i class="fa-solid fa-book-bookmark text-2xl text-slate-300 group-hover:text-skybrand-500 transition-colors"></i>
-                        </div>
-                        <h4 class="text-xl font-bold text-slate-800 group-hover:text-skybrand-600 transition-colors">SMA Negeri 01 Sungai Pinyuh</h4>
-                        <p class="text-sm font-medium text-slate-500 mt-1">Sekolah Menengah Atas (Kurikulum Merdeka)</p>
-                        <p class="text-xs text-slate-400 mt-3 text-justify">Menjalani pembelajaran dengan memilih mata pelajaran sesuai minat, yaitu Matematika, Fisika, Informatika, dan Bahasa Inggris. Pilihan ini membantu mengembangkan kemampuan berpikir logis, pemecahan masalah, serta ketertarikan pada teknologi dan pemrograman.</p>
-                    </div>
-                    
-                </div>
-
-                <div onclick="openModal('kuliah')" class="cursor-pointer group bg-gradient-to-br from-skybrand-600 to-indigo-700 p-6 rounded-3xl text-white shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-between md:col-span-2 lg:col-span-2 relative overflow-hidden">
-                    <i class="fa-solid fa-cloud absolute -right-6 -bottom-6 text-8xl text-white/10"></i>
-                    <div class="relative z-10">
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="px-3 py-1 bg-white/20 text-white rounded-full text-xs font-bold backdrop-blur-md">2026 - Sekarang</span>
-                            <i class="fa-solid fa-university text-3xl text-white/80 group-hover:text-white transition-colors"></i>
-                        </div>
-                        <h4 class="text-2xl font-bold">Universitas Tanjungpura</h4>
-                        <p class="text-base text-skybrand-100 mt-1 font-medium">S1 Sistem Informasi</p>
-                        <p class="text-xs text-skybrand-100/90 mt-3 max-w-full text-justify ">
-                            Masih dalam tahap adaptasi dengan lingkungan perkuliahan dan proses pembelajaran di bidang Sistem Informasi. Mulai mempelajari dasar-dasar pemrograman, analisis sistem, serta desain antarmuka pengguna (UI/UX) sebagai langkah awal untuk mengembangkan keterampilan di bidang teknologi informasi..
+                        <h3 class="card-heading">Mengenal Lebih Dekat</h3>
+                        <p class="card-paragraph">
+                            Saya adalah mahasiswa aktif program studi <strong>Sistem Informasi</strong> yang menyukai
+                            eksplorasi teknologi dan digitalisasi. Bagi saya, Sistem Informasi adalah jembatan ideal
+                            antara pemecahan masalah bisnis dan keindahan rekayasa perangkat lunak.
                         </p>
+                        <p class="card-paragraph text-justify">
+                            Meskipun saat ini masih dalam tahap awal perjalanan akademik, saya tertarik untuk mengenal
+                            lebih jauh dunia teknologi informasi,
+                            khususnya dalam pengembangan aplikasi dan desain antarmuka pengguna (UI/UX). Saya ingin
+                            memahami bagaimana teknologi dapat dikembangkan menjadi sesuatu yang bermanfaat dan
+                            memudahkan aktivitas sehari-hari.
+                        </p>
+
+                        <div class=" academic-highlights">
+                            <div class="highlight-item">
+                                <span class="highlight-title">Program Studi</span>
+                                <span class="highlight-value">S1 Sistem Informasi</span>
+                            </div>
+                            <div class="highlight-item">
+                                <span class="highlight-title">Fokus Studi</span>
+                                <span class="highlight-value">Coming soon</span>
+                            </div>
+                            <div class="highlight-item">
+                                <span class="highlight-title">Status</span>
+                                <span class="highlight-value">Mahasiswa Aktif (Semester 1)</span>
+                            </div>
+                        </div>
                     </div>
-                    
+
+                    <!-- IT Interests & Skills Area -->
+                    <div class="about-interests-card glow-card">
+                        <div class="card-icon-header">
+                            <div class="circle-icon-glow">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00e5ff"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="16 18 22 12 16 6"></polyline>
+                                    <polyline points="8 6 2 12 8 18"></polyline>
+                                </svg>
+                            </div>
+                            <span class="card-badge">MINAT & TEKNOLOGI</span>
+                        </div>
+
+                        <h3 class="card-heading">Minat di Dunia IT</h3>
+
+                        <div class="interest-box">
+                            <div class="interest-icon">🎨</div>
+                            <div class="interest-info">
+                                <h4>UI/UX Design & Prototyping</h4>
+                                <p>Membuat rancangan antarmuka pengguna yang bersih, responsif, dan ramah pengguna
+                                    dengan Figma.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-            </div>
-        </div>
-    </section>
-
-    <!-- PROYEK / KARYA -->
-    <section id="Project" class="py-20 bg-white/90 backdrop-blur-md border-y border-skybrand-100 relative z-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-12">
-                <h2 class="text-xs font-bold uppercase tracking-widest text-skybrand-600 mb-2">Eksplorasi Karya</h2>
-                <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900">Proyek & Portofolio</h3>
-                <div class="w-16 h-1 bg-skybrand-500 mx-auto mt-4 rounded-full"></div>
-            </div>
-
-            <div class="max-w-4xl mx-auto bg-gradient-to-br from-skybrand-900 via-skybrand-800 to-indigo-950 rounded-3xl p-8 sm:p-12 text-center text-white shadow-2xl relative overflow-hidden">
-                <div class="absolute -right-8 -bottom-8 text-white/10 text-9xl">
-                    <i class="fa-solid fa-cloud"></i>
-                </div>
-
-                <div class="relative z-10 max-w-xl mx-auto space-y-6">
-                    <div class="w-16 h-16 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center mx-auto text-3xl text-skybrand-300">
-                        <i class="fa-solid fa-cloud-bolt"></i>
+                <!-- Hobbies & Personal Interests -->
+                <div class="about-hobbies-card glow-card full-width">
+                    <div class="card-icon-header">
+                        <div class="circle-icon-glow">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00e5ff"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon
+                                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                                </polygon>
+                            </svg>
+                        </div>
+                        <span class="card-badge">AKTIVITAS & HOBI</span>
                     </div>
-                    
-                    <h4 class="text-2xl sm:text-3xl font-extrabold">Proyek & Ide Kreatif Coming soon!</h4>
-                    
-                    <p class="text-skybrand-100 text-sm sm:text-base leading-relaxed">
-                        Saat ini saya sedang fokus mempelajari dasar-dasar pengembangan UI/UX, alur analisis sistem, dan pemrograman web interaktif.
+
+                    <h3 class="card-heading">Aktivitas di Luar Perkuliahan</h3>
+                    <p class="card-paragraph" style="margin-bottom: 24px;">
+                        Menjaga keseimbangan antara belajar akademik dan hobi kreatif membantu saya tetap segar dan
+                        menemukan inspirasi baru:
                     </p>
 
-                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/10 border border-white/15 text-xs text-skybrand-200 font-medium">
-                        <i class="fa-solid fa-code text-skybrand-300"></i> Sedang Dalam Tahap Pembelajaran
+                    <div class="hobbies-grid">
+                        <div class="hobby-item">
+                            <span class="hobby-emoji">💻</span>
+                            <span class="hobby-name">Coding & Problem Solving</span>
+                            <span class="hobby-desc">Mencoba studi kasus logika dan mencoba membuat mini project web
+                                sederhana.</span>
+                        </div>
+                        <div class="hobby-item">
+                            <span class="hobby-emoji">📚</span>
+                            <span class="hobby-name">Membaca Novel</span>
+                            <span class="hobby-desc">Membaca novel fiksi ilmiah dan fantasi untuk hiburan.</span>
+                        </div>
+                        <div class="hobby-item">
+                            <span class="hobby-emoji">🎮</span>
+                            <span class="hobby-name">Strategy & Gaming</span>
+                            <span class="hobby-desc">Mengasah ketangkasan berpikir taktis dan koordinasi tim secara
+                                online.</span>
+                        </div>
+                        <div class="hobby-item">
+                            <span class="hobby-emoji">☕</span>
+                            <span class="hobby-name">Diskusi & Kopi</span>
+                            <span class="hobby-desc">Bertukar ide dan berdiskusi bersama teman.</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            </div>
+        </section>
+
+        <!-- 3. PENGALAMAN & RIWAYAT (EXPERIENCE & EDUCATION) -->
+        <!-- Didesain persis terinspirasi dari Gambar 2 dengan tema Hitam & Biru Neon -->
+        <section class="experience-section" id="experience">
+            <div class="container experience-layout">
+
+                <!-- Left Side: Title & Action (Similar to Image 2 Left Side) -->
+                <div class="exp-left-col">
+                    <div class="exp-header-wrap">
+                        <span class="exp-tag">EDUCATION & JOURNEY —</span>
+                        <h2 class="exp-big-title">
+                            My Academic <br>
+                            <span class="text-gradient-blue">Journey So Far.</span>
+                        </h2>
+                    </div>
+
+                    <p class="exp-lead-text">
+                        Setiap pengalaman dan mata kuliah memberikan pelajaran berharga yang membentuk cara saya melihat
+                        sebuah masalah dari sudut pandang logika dan sistemik. Perjalanan ini adalah pondasi penting
+                        dalam proses saya untuk terus berkembang menjadi seorang profesional IT.
+                    </p>
+
+                    <!-- Giant Background Watermark Text (Image 2 style) -->
+                    <div class="exp-bg-watermark">EDUCATION</div>
+                </div>
+
+                <!-- Right Side: Vertical Timeline with Glowing Blue Line & Cards -->
+                <div class="exp-right-col">
+                    <div class="timeline-container">
+                        <!-- Glowing Blue Vertical Line -->
+                        <div class="timeline-glow-line"></div>
+
+                        <!-- Item 1: S1 Sistem Informasi -->
+                        <div class="timeline-card-item">
+                            <div class="timeline-pin">
+                                <span class="pin-inner-pulse"></span>
+                            </div>
+                            <div class="timeline-card glow-card">
+                                <div class="timeline-card-meta">
+                                    <div class="timeline-period-badge">2026 – Sekarang</div>
+                                    <h3 class="timeline-role-title">S1 Sistem Informasi</h3>
+                                    <div class="timeline-institution">Fakultas Matematika dan Ilmu Pengetahuan Alam •
+                                        Universitas Tanjungpura</div>
+                                    <div class="timeline-tags-row">
+                                        <span class="meta-tag">Mahasiswa Aktif</span>
+                                        <span class="meta-tag">Indonesia</span>
+                                        <span class="meta-tag">On-Campus</span>
+                                    </div>
+                                </div>
+                                <div class="timeline-card-desc">
+                                    <p>
+                                        Masih dalam tahap adaptasi dengan lingkungan perkuliahan dan proses pembelajaran
+                                        di bidang Sistem Informasi. Mulai mempelajari dasar-dasar pemrograman, analisis
+                                        sistem, serta desain antarmuka pengguna (UI/UX) sebagai langkah awal untuk
+                                        mengembangkan keterampilan di bidang teknologi informasi.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 2: Organisasi Mahasiswa -->
+                        <div class="timeline-card-item">
+                            <div class="timeline-pin">
+                                <span class="pin-inner-pulse"></span>
+                            </div>
+                            <div class="timeline-card glow-card">
+                                <div class="timeline-card-meta">
+                                    <div class="timeline-period-badge">2023 – 2026</div>
+                                    <h3 class="timeline-role-title">SMA Negeri 1 Sungai Pinyuh</h3>
+                                    <div class="timeline-institution">Sekolah Menengah Atas</div>
+                                    <div class="timeline-tags-row">
+                                        <span class="meta-tag">SMA</span>
+                                        <span class="meta-tag">Alumni</span>
+                                        <span class="meta-tag">Ekstrakurikuler Pramuka</span>
+                                    </div>
+                                </div>
+                                <div class="timeline-card-desc">
+                                    <p>
+                                        Mempelajari cara berorganisasi, bekerja sama dalam tim, serta kedisiplinan.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 3: Pelatihan & Sertifikasi IT -->
+                        <div class="timeline-card-item">
+                            <div class="timeline-pin">
+                                <span class="pin-inner-pulse"></span>
+                            </div>
+                            <div class="timeline-card glow-card">
+                                <div class="timeline-card-meta">
+                                    <div class="timeline-period-badge">Juni 2025</div>
+                                    <h3 class="timeline-role-title">SMA Negri 1 Sungai Pinyuh</h3>
+                                    <div class="timeline-institution">FLS3N Tingkat Kabupaten Mempawah 2025</div>
+                                    <div class="timeline-tags-row">
+                                        <span class="meta-tag">Lomba</span>
+                                        <span class="meta-tag">Harapan 1 Cipta Puisi</span>
+                                    </div>
+                                </div>
+                                <div class="timeline-card-desc">
+                                    <p>
+                                        Mendapatkan Juara Harapan 1 dalam Festival Lomba Seni dan Sastra Tingkat
+                                        Kabupaten Mempawah 2025
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-<section id="Contact" class="py-12 bg-slate-900 text-white relative z-10 overflow-hidden">
-    <div class="max-w-full mx-auto px-6 sm:px-10 lg:px-20 relative z-10">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start justify-between">
-            
-            <!-- Sisi Kiri -->
-            <div class="lg:col-span-4 space-y-5">
-                <div>
-                    <h2 class="text-sm font-bold uppercase tracking-widest text-skybrand-400 mb-1">Terhubung</h2>
-                    <h3 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-2">
-                        Contact Me
+        <!-- 4. PROYEK / KARYA (PORTOFOLIO) -->
+        <!-- Sesuai instruksi: Belum ada karya sehingga dituliskan COMING SOON dengan visual futuristik -->
+        <section class="portfolio-section" id="portfolio">
+            <div class="container">
+
+                <div class="section-header-compact text-center">
+                    <span class="section-tag-blue">KARYA & PORTOFOLIO —</span>
+                    <h2 class="section-title">Upcoming Projects Showcase</h2>
+                    <p class="section-subtitle">
+                        Saat ini saya sedang fokus mempelajari dasar-dasar pengembangan UI/UX, alur analisis sistem, dan
+                        pemrograman web interaktif.
+                    </p>
+                </div>
+
+                <!-- Futuristic Coming Soon Banner -->
+                <div class="coming-soon-wrapper glow-card">
+                    <div class="coming-soon-backdrop-grid"></div>
+
+                    <div class="coming-soon-header">
+                        <div class="pulse-radar-box">
+                            <span class="radar-circle"></span>
+                            <span class="radar-dot"></span>
+                        </div>
+                        <span class="coming-soon-pill">STATUS: SEDANG DALAM PEMBELAJARAN</span>
+                    </div>
+
+                    <h3 class="coming-soon-title">
+                        <span class="glitch-text" data-text="COMING SOON">COMING SOON</span>
                     </h3>
+                    <p class="coming-soon-description">
+                        Sebagai mahasiswa baru saat ini saya masih dalam pembelajaran.
+                    </p>
+
+                    <div class="coming-soon-footer">
+                        <a href="https://github.com/ImNoelle" target="_blank" rel="noopener noreferrer"
+                            class="btn-primary-glow">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+                            </svg>
+                            <span>Pantau Repositori GitHub</span>
+                        </a>
+                    </div>
+
                 </div>
 
-                <div class="space-y-4 text-base">
-                    <!-- Item Email -->
-                    <div class="flex items-center gap-4">
-                        <div class="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center text-skybrand-400 text-xl flex-shrink-0">
-                            <i class="fa-solid fa-envelope"></i>
-                        </div>
-                        <div>
-                            <p class="text-xs text-slate-400 uppercase tracking-wider">Email</p>
-                            <p class="font-semibold text-slate-200 text-sm sm:text-base break-all">h1101261003@student.untan.ac.id</p>
+            </div>
+        </section>
+
+        <!-- 5. KONTAK & SOSIAL MEDIA (CONTACT / FOOTER) -->
+        <section class="contact-section" id="contact">
+            <div class="container">
+
+                <div class="section-header-compact">
+                    <span class="section-tag-blue">HUBUNGI SAYA —</span>
+                    <h2 class="section-title">Mari Terhubung & Berdiskusi</h2>
+                    <p class="section-subtitle">
+                        Terbuka untuk diskusi proyek perkuliahan atau sekedar menyapa.
+                    </p>
+                </div>
+
+                <div class="contact-grid">
+
+                    <!-- Contact Info & Socials Left Column -->
+                    <div class="contact-info-col">
+                        <div class="contact-detail-card glow-card">
+                            <h3 class="contact-card-title">Informasi Kontak</h3>
+                            <p class="contact-card-desc">
+                                Silakan hubungi saya melalui salah satu saluran berikut. Saya akan berusaha merespons
+                                sesegera mungkin.
+                            </p>
+
+                            <div class="contact-channel-list">
+
+                                <a href="mailto:h1101261003@student.untan.ac.id" class="channel-item">
+                                    <div class="channel-icon-box">
+                                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00d2ff"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path
+                                                d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                            </path>
+                                            <polyline points="22,6 12,13 2,6"></polyline>
+                                        </svg>
+                                    </div>
+                                    <div class="channel-text">
+                                        <span class="channel-label">Email Mahasiswa</span>
+                                        <span class="channel-val">h1101261003@student.untan.ac.id</span>
+                                    </div>
+                                </a>
+
+                                <div class="channel-item non-link">
+                                    <div class="channel-icon-box">
+                                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00d2ff"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                            <circle cx="12" cy="10" r="3"></circle>
+                                        </svg>
+                                    </div>
+                                    <div class="channel-text">
+                                        <span class="channel-label">Domisili</span>
+                                        <span class="channel-val">Kalimantan Barat, Indonesia</span>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- Social Media Connected Buttons -->
+                            <div class="social-links-block">
+                                <span class="social-block-title">Kunjungi Media Sosial:</span>
+                                <div class="social-badges-grid">
+                                    <a href="https://www.instagram.com/nandainblue_?dlrf=MXByZW1tNzJmY2JkZg=="
+                                        target="_blank" rel="noopener noreferrer" class="social-pill-link">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                            <path
+                                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                                        </svg>
+                                        <span>Instagram</span>
+                                    </a>
+
+                                    <a href="https://www.linkedin.com/in/novia-elza-nanda-41a5a8446/" target="_blank"
+                                        rel="noopener noreferrer" class="social-pill-link">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                            <path
+                                                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                                        </svg>
+                                        <span>LinkedIn</span>
+                                    </a>
+
+                                    <a href="https://github.com/ImNoelle" target="_blank" rel="noopener noreferrer"
+                                        class="social-pill-link">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                            <path
+                                                d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+                                        </svg>
+                                        <span>GitHub</span>
+                                    </a>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
 
-                    <!-- Item Lokasi -->
-                    <div class="flex items-center gap-4">
-                        <div class="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center text-skybrand-400 text-xl flex-shrink-0">
-                            <i class="fa-solid fa-location-dot"></i>
-                        </div>
-                        <div>
-                            <p class="text-xs text-slate-400 uppercase tracking-wider">Lokasi</p>
-                            <p class="font-semibold text-slate-200 text-sm sm:text-base">Kalimantan Barat, Indonesia</p>
+                    <!-- Quick Message Form Right Column -->
+                    <div class="contact-form-col">
+                        <div class="form-card glow-card">
+                            <h3 class="contact-card-title">Kirim Pesan Langsung</h3>
+                            <p class="contact-card-desc">Ada pertanyaan atau ingin menyapa? Tinggalkan pesan melalui
+                                formulir interaktif ini:</p>
+
+                            <form id="contactForm" class="styled-contact-form">
+                                <div class="form-group">
+                                    <label for="senderName">Nama Lengkap</label>
+                                    <input type="text" id="senderName" name="senderName"
+                                        placeholder="Contoh: Budi Santoso" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="senderEmail">Alamat Email</label>
+                                    <input type="email" id="senderEmail" name="senderEmail" placeholder="nama@email.com"
+                                        required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="messageSubject">Subjek / Topik</label>
+                                    <input type="text" id="messageSubject" name="messageSubject"
+                                        placeholder="Misal: Diskusi Proyek Web / Belajar IT Bersama" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="messageBody">Isi Pesan</label>
+                                    <textarea id="messageBody" name="messageBody" rows="4"
+                                        placeholder="Tuliskan pesan Anda di sini..." required></textarea>
+                                </div>
+
+                                <button type="submit" class="btn-primary-glow w-100" id="btnSubmitMessage">
+                                    <span>Kirim Pesan Sekarang</span>
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                                    </svg>
+                                </button>
+                            </form>
+
+                            <!-- Toast / Feedback Message Container -->
+                            <div id="formFeedback" class="form-feedback hidden"></div>
                         </div>
                     </div>
+
                 </div>
 
-                <!-- Bagian Sosial Media & Logo -->
-                <div class="pt-2">
-                    <p class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">Sosial Media</p>
-                    <div class="flex items-center gap-3">
-                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-xl bg-white/10 hover:bg-skybrand-500 flex items-center justify-center text-slate-300 hover:text-white transition-all">
-                            <i class="fa-brands fa-instagram text-xl"></i>
-                        </a>
-                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-xl bg-white/10 hover:bg-skybrand-500 flex items-center justify-center text-slate-300 hover:text-white transition-all">
-                            <i class="fa-brands fa-linkedin-in text-xl"></i>
-                        </a>
-                        <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-xl bg-white/10 hover:bg-skybrand-500 flex items-center justify-center text-slate-300 hover:text-white transition-all">
-                            <i class="fa-brands fa-github text-xl"></i>
-                        </a>
-                        <a href="mailto:h1101261003@student.untan.ac.id" class="w-11 h-11 rounded-xl bg-white/10 hover:bg-skybrand-500 flex items-center justify-center text-slate-300 hover:text-white transition-all" title="Kirim Email ke Novia">
-                            <i class="fa-solid fa-envelope text-xl"></i>
-                        </a>
-                    </div>
-                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="main-footer">
+        <div class="container footer-content">
+            <div class="footer-left">
+                <a href="#hero" class="footer-brand">
+                    <span>ImNoelle</span>
+                    <span class="brand-dot"></span>
+                </a>
+                <p class="footer-copyright">
+                    &copy; 2026 <strong>Novia Elza Nanda</strong>. Mahasiswa Sistem Informasi. Hak cipta dilindungi.
+                </p>
             </div>
 
-            <!-- Sisi Kanan (Form) -->
-            <div class="lg:col-span-5 lg:col-end-13 bg-white/5 border border-white/10 p-5 sm:p-6 rounded-2xl backdrop-blur-md">
-                <form id="contact-form" class="space-y-3.5">
-                    <input type="hidden" id="access_key" value="cd6a4acc-bccc-4ff9-ade8-26e8aa8a089f">
-
-                    <div>
-                        <label for="name" class="block text-[11px] font-semibold text-slate-300 uppercase tracking-wider mb-1.5">Nama Lengkap</label>
-                        <input type="text" id="name" required placeholder="Masukkan nama Anda" class="w-full bg-slate-800/80 border border-slate-700 rounded-lg px-3.5 py-2 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-skybrand-400 transition-colors">
-                    </div>
-
-                    <div>
-                        <label for="email" class="block text-[11px] font-semibold text-slate-300 uppercase tracking-wider mb-1.5">Alamat Email</label>
-                        <input type="email" id="email" required placeholder="nama@email.com" class="w-full bg-slate-800/80 border border-slate-700 rounded-lg px-3.5 py-2 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-skybrand-400 transition-colors">
-                    </div>
-
-                    <div>
-                        <label for="message" class="block text-[11px] font-semibold text-slate-300 uppercase tracking-wider mb-1.5">Pesan Anda</label>
-                        <textarea id="message" rows="3" required placeholder="Tuliskan pesan Anda di sini..." class="w-full bg-slate-800/80 border border-slate-700 rounded-lg px-3.5 py-2 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-skybrand-400 transition-colors resize-none"></textarea>
-                    </div>
-
-                    <button type="submit" id="submit-btn" class="w-full bg-skybrand-600 hover:bg-skybrand-700 text-white font-semibold py-2.5 px-5 rounded-lg transition-all flex items-center justify-center gap-2 shadow-lg shadow-skybrand-500/25 text-sm">
-                        <i class="fa-solid fa-paper-plane text-xs"></i>
-                        <span>Kirim Pesan</span>
-                    </button>
-                </form>
-
-                <div id="form-alert" class="hidden mt-3 p-3 rounded-lg bg-emerald-500/20 border border-emerald-500/40 text-emerald-200 text-xs flex items-center gap-2.5">
-                    <i class="fa-solid fa-circle-check text-lg text-emerald-400"></i>
-                    <span>Terima kasih! Pesan Anda telah berhasil dikirim.</span>
-                </div>
+            <div class="footer-right">
+                <button id="btnBackToTop" class="back-to-top" aria-label="Kembali ke atas">
+                    <span>Ke Atas</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="18 15 12 9 6 15"></polyline>
+                    </svg>
+                </button>
             </div>
-
         </div>
-    </div>
-</section>
+    </footer>
 
-    <!-- JAVASCRIPT LOGIC -->
-    <script src="script.js" defer></script>
-
+    <!-- Main JavaScript File -->
+    <script src="script.js"></script>
 </body>
+
 </html>
