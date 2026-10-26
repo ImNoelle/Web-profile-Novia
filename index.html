@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio - Novia Elza Nanda</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Font Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        skybrand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body class="font-sans bg-gradient-to-b from-skybrand-100 via-skybrand-50 to-white text-slate-800 antialiased selection:bg-skybrand-400 selection:text-white relative overflow-x-hidden min-h-screen">
+
+    <!-- 1. PRELOADER ANIMASI DENGAN LEDAKAN AWAN RAKSASA & BUNGA -->
+    <div id="preloader" class="fixed inset-0 z-50 bg-skybrand-100 flex flex-col items-center justify-center transition-opacity duration-700 overflow-hidden">
+        <div class="relative flex flex-col items-center">
+            
+            <!-- LAPISAN MEKAR -->
+            <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
+                <!-- AWAN-AWAN JUMBO -->
+                <div class="absolute text-white text-[12rem] sm:text-[16rem] animate-jumbo-explode" style="--tw-x: -240px; --tw-y: -200px; animation-delay: 0s;">
+                    <i class="fa-solid fa-cloud filter drop-shadow-[0_15px_30px_rgba(255,255,255,0.95)]"></i>
+                </div>
+                <div class="absolute text-white/95 text-[11rem] sm:text-[14rem] animate-jumbo-explode" style="--tw-x: 260px; --tw-y: -180px; animation-delay: 0.4s;">
+                    <i class="fa-solid fa-cloud filter drop-shadow-[0_15px_30px_rgba(255,255,255,0.95)]"></i>
+                </div>
+                <div class="absolute text-white/95 text-[12rem] sm:text-[15rem] animate-jumbo-explode" style="--tw-x: -280px; --tw-y: 160px; animation-delay: 0.2s;">
+                    <i class="fa-solid fa-cloud filter drop-shadow-[0_15px_30px_rgba(255,255,255,0.95)]"></i>
+                </div>
+                <div class="absolute text-white text-[11rem] sm:text-[14rem] animate-jumbo-explode" style="--tw-x: 250px; --tw-y: 200px; animation-delay: 0.6s;">
+                    <i class="fa-solid fa-cloud filter drop-shadow-[0_15px_30px_rgba(255,255,255,0.95)]"></i>
+                </div>
+                
+                <!-- BUNGA REMEKAH -->
+                <div class="absolute scale-0 text-amber-300 text-4xl sm:text-5xl animate-jumbo-explode" style="--tw-x: 280px; --tw-y: -20px; animation-delay: 0.3s;">
+                    <i class="fa-solid fa-spa filter drop-shadow-md"></i>
+                </div>
+                <div class="absolute scale-0 text-pink-300 text-5xl sm:text-6xl animate-jumbo-explode" style="--tw-x: -290px; --tw-y: -40px; animation-delay: 0.5s;">
+                    <i class="fa-solid fa-spa filter drop-shadow-md"></i>
+                </div>
+                <div class="absolute scale-0 text-sky-300 text-4xl sm:text-5xl animate-jumbo-explode" style="--tw-x: 40px; --tw-y: 260px; animation-delay: 0.15s;">
+                    <i class="fa-solid fa-spa filter drop-shadow-md"></i>
+                </div>
+            </div>
+
+            <!-- BULATAN LOADING UTAMA -->
+            <div class="relative mb-6 z-10">
+                <div class="w-20 h-20 rounded-full bg-skybrand-300/40 animate-ping absolute inset-0"></div>
+                <div class="w-20 h-20 rounded-full bg-white shadow-2xl flex items-center justify-center text-skybrand-500 text-3xl relative z-10 animate-bounce">
+                    <i class="fa-solid fa-cloud"></i>
+                </div>
+            </div>
+            
+            <p class="text-skybrand-900 font-extrabold text-lg tracking-wide flex items-center gap-2 bg-white/90 px-6 py-2 rounded-full shadow-lg border border-white/50 z-10 backdrop-blur-sm">
+                <span>Memuat Portofolio</span>
+                <i class="fa-solid fa-circle-notch animate-spin text-skybrand-600"></i>
+            </p>
+        </div>
+    </div>
+
+    <!-- 2. AWAN -->
+  <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden cloud-layer" aria-hidden="true">
+    <div class="absolute top-20 -left-10 w-32 sm:w-48 text-white/95 filter drop-shadow-[0_4px_6px_rgba(255,255,255,0.8)] animate-cloud-left">
+      <svg viewBox="0 0 200 120" fill="currentColor"><path d="M30 90 A30 30 0 0 1 40 35 A40 40 0 0 1 110 25 A35 35 0 0 1 165 48 A25 25 0 0 1 175 90 Z"/></svg>
+    </div>
+    <div class="absolute top-20 left-[24%] w-36 sm:w-52 text-white/90 filter drop-shadow-[0_4px_8px_rgba(255,255,255,0.7)] animate-cloud-right">
+      <svg viewBox="0 0 200 120" fill="currentColor"><path d="M25 90 A30 30 0 0 1 38 38 A42 42 0 0 1 110 24 A38 38 0 0 1 165 48 A25 25 0 0 1 180 90 Z"/></svg>
+    </div>
+    <div class="absolute top-24 right-[30%] w-44 sm:w-60 text-white/95 filter drop-shadow-[0_4px_8px_rgba(255,255,255,0.8)] animate-cloud-left">
+      <svg viewBox="0 0 200 120" fill="currentColor"><path d="M30 90 A30 30 0 0 1 40 35 A40 40 0 0 1 110 25 A35 35 0 0 1 165 48 A25 25 0 0 1 175 90 Z"/></svg>
+    </div>
+    <div class="absolute top-20 -right-12 w-36 sm:w-52 text-white/90 filter drop-shadow-[0_4px_6px_rgba(255,255,255,0.7)] animate-cloud-right">
+      <svg viewBox="0 0 200 120" fill="currentColor"><path d="M25 90 A30 30 0 0 1 38 38 A42 42 0 0 1 110 24 A38 38 0 0 1 165 48 A25 25 0 0 1 180 90 Z"/></svg>
+    </div>
+    <div class="absolute top-[48%] -left-16 w-44 sm:w-56 text-white/95 filter drop-shadow-[0_4px_8px_rgba(255,255,255,0.8)] animate-cloud-right">
+      <svg viewBox="0 0 200 120" fill="currentColor"><path d="M30 90 A30 30 0 0 1 40 35 A40 40 0 0 1 110 25 A35 35 0 0 1 165 48 A25 25 0 0 1 175 90 Z"/></svg>
+    </div>
+    <div class="absolute top-[64%] left-[6%] w-56 sm:w-72 text-white/95 filter drop-shadow-[0_6px_10px_rgba(255,255,255,0.9)] animate-cloud-left">
+      <svg viewBox="0 0 200 120" fill="currentColor"><path d="M25 90 A30 30 0 0 1 38 38 A42 42 0 0 1 110 24 A38 38 0 0 1 165 48 A25 25 0 0 1 180 90 Z"/></svg>
+    </div>
+    <div class="absolute top-[68%] left-[46%] w-56 sm:w-72 text-white/90 filter drop-shadow-[0_4px_8px_rgba(255,255,255,0.7)] animate-cloud-right">
+      <svg viewBox="0 0 200 120" fill="currentColor"><path d="M30 90 A30 30 0 0 1 40 35 A40 40 0 0 1 110 25 A35 35 0 0 1 165 48 A25 25 0 0 1 175 90 Z"/></svg>
+    </div>
+    <div class="absolute top-[60%] -right-12 w-44 sm:w-64 text-white/95 filter drop-shadow-[0_4px_8px_rgba(255,255,255,0.8)] animate-cloud-left">
+      <svg viewBox="0 0 200 120" fill="currentColor"><path d="M25 90 A30 30 0 0 1 38 38 A42 42 0 0 1 110 24 A38 38 0 0 1 165 48 A25 25 0 0 1 180 90 Z"/></svg>
+    </div>
+  </div>
+
+
+<!-- NAVBAR -->
+<div class="fixed top-4 left-0 right-0 z-40 px-4 sm:px-6 lg:px-8">
+    <nav class="max-w-7xl mx-auto bg-white/60 backdrop-blur-md rounded-full border border-white/40 shadow-lg shadow-skybrand-400/5 transition-all duration-300">
+        <div class="px-6 sm:px-8">
+            <div class="flex items-center justify-between h-20 py-2">
+                
+                <!-- Logo Utama -->
+                <a href="#Home" class="flex items-center text-xl sm:text-3xl font-extrabold tracking-tight text-skybrand-900 group">
+                    <span>I'm<span class="text-skybrand-600">Noelle</span></span>
+                </a>
+
+                <!-- Desktop Links  -->
+                <div class="hidden md:flex items-center space-x-6 font-bold text-slate-700 text-base ml-auto pr-12">
+                    <a href="#Home" class="hover:text-skybrand-600 transition-colors py-1">Home</a>
+                    <a href="#About Me" class="hover:text-skybrand-600 transition-colors py-1">About Me</a>
+                    <a href="#Education" class="hover:text-skybrand-600 transition-colors py-1">Education</a>
+                    <a href="#Project" class="hover:text-skybrand-600 transition-colors py-1">Project</a>
+                </div>
+
+                <!-- Tombol Hubungi Saya -->
+                <div class="hidden md:block">
+                    <a href="#Contact" class="inline-flex items-center gap-2 bg-skybrand-600 hover:bg-skybrand-700 text-white font-semibold text-sm px-6 py-2.5 rounded-full shadow-md shadow-skybrand-500/20 hover:shadow-lg transition-all transform hover:-translate-y-0.5">
+                        <i class="fa-regular fa-paper-plane me-1"></i> Hubungi Saya
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" type="button" class="text-slate-700 hover:text-skybrand-600 p-2 rounded-lg focus:outline-none">
+                        <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-slate-100 bg-white/95 backdrop-blur-lg px-6 pt-2 pb-6 space-y-3 rounded-b-[2rem] shadow-xl mt-1">
+            <a href="#Home" class="mobile-link block px-3 py-2 rounded-lg text-slate-700 font-medium hover:bg-skybrand-50">Home</a>
+            <a href="#About Me" class="mobile-link block px-3 py-2 rounded-lg text-slate-700 font-medium hover:bg-skybrand-50">About Me</a>
+            <a href="#Education" class="mobile-link block px-3 py-2 rounded-lg text-slate-700 font-medium hover:bg-skybrand-50">Education</a>
+            <a href="#Project" class="mobile-link block px-3 py-2 rounded-lg text-slate-700 font-medium hover:bg-skybrand-50">Project</a>
+            <a href="#Contact" class="mobile-link block w-full text-center bg-skybrand-600 text-white font-medium px-4 py-2.5 rounded-full shadow mt-2">Hubungi Saya</a>
+        </div>
+    </nav>
+</div>
+
+
+
+<!-- HERO SECTION -->
+<section id="Home" class="min-h-screen w-full flex flex-col justify-center pt-20 mt-8 pb-16 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div class="flex flex-col lg:flex-row items-center justify-between gap-12 w-full mt-12">
+            
+            <!-- KIRI: Nama, Deskripsi, Tombol & Card -->
+            <div class="w-full lg:w-7/12 text-center lg:text-left space-y-6 order-2 lg:order-1 lg:pl-16 flex flex-col justify-center">
+                
+                <!-- Info Nama & Kampus (Ukuran Teks Diperkecil Sedikit) -->
+                <div class="space-y-3">
+                    <p class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
+                        Halo, Saya
+                    </p>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-skybrand-900 tracking-tight leading-tight">
+                        Novia Elza Nanda
+                    </h2>
+                    <p class="text-slate-600 text-sm sm:text-base leading-relaxed max-w-xl mx-auto lg:mx-0">
+                        Seorang mahasiswi Sistem Informasi angkatan 2026 
+                        Universitas Tanjungpura, Kalimantan Barat, Indonesia.
+                    </p>
+                </div>
+                
+                <!-- Tombol CTA -->
+                <div class="pt-1 flex justify-center lg:justify-start">
+                    <a href="#Contact" class="inline-flex items-center gap-2 bg-skybrand-600 hover:bg-skybrand-700 text-white font-semibold text-sm px-6 py-3 rounded-full shadow-lg shadow-skybrand-500/25 hover:shadow-xl transition-all transform hover:-translate-y-0.5">
+                        <i class="fa-solid fa-paper-plane text-xs"></i>
+                        <span>Hubungi Saya</span>
+                    </a>
+                </div>
+
+                <!-- CARD DI KIRI BAWAH -->
+                <div class="pt-2 max-w-md mx-auto lg:mx-0 w-full">
+                    <div class="bg-white/95 backdrop-blur-md p-5 sm:p-6 rounded-2xl shadow-xl shadow-skybrand-200/50 border border-skybrand-100 text-left space-y-2">
+                        <h3 class="text-base font-extrabold text-slate-900 flex items-center gap-2">
+                            ✨ Target & Eksplorasi
+                        </h3>
+                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed text-justify">
+                            Sedang beradaptasi dengan dunia perkuliahan Sistem Informasi, mengeksplorasi logika teknologi, serta mengasah kemampuan soft dan hard skill.
+                        </p>
+                        <div class="pt-1">
+                            <a href="#About Me" class="inline-flex items-center gap-1.5 text-xs font-bold text-skybrand-600 hover:text-skybrand-700 group transition-colors">
+                                <span>About Me</span>
+                                <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- KANAN: Foto Profil Besar Kotak -->
+            <div class="w-full lg:w-5/12 flex justify-center items-center order-1 lg:order-2">
+                <div class="relative w-full max-w-xs sm:max-w-sm aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-skybrand-100 group">
+                    <img src="asset/p2.jpg" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out" alt="Foto Novia Elza Nanda">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/20 via-transparent to-transparent pointer-events-none"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+    <!-- TENTANG SAYA -->
+    <section id="About Me" class="py-20 bg-white/90 backdrop-blur-md border-y border-skybrand-100 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-skybrand-600 mb-2">Profil Ringkas</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900">About Me</h3>
+                <div class="w-16 h-1 bg-skybrand-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-6 text-slate-600 text-sm sm:text-base leading-relaxed text-justify">
+                    <p class="text-lg text-slate-800 font-semibold">
+                        Halo! Saya Novia Elza Nanda mahasiswi Sistem Informasi yang memiliki semangat untuk terus belajar, mencoba hal baru, dan mengembangkan diri.
+                    </p>
+                    <p>
+                        Sebagai mahasiswi yang baru memulai perjalanan di dunia perkuliahan, saya tertarik untuk mengenal lebih jauh dunia teknologi informasi, khususnya dalam pengembangan aplikasi dan desain antarmuka pengguna (UI/UX). Saya ingin memahami bagaimana teknologi dapat dikembangkan menjadi sesuatu yang bermanfaat dan memudahkan aktivitas sehari-hari.
+                    </p>
+                    <p>
+                        Di luar perkuliahan, saya senang menikmati waktu dengan hal-hal sederhana, seperti mendengarkan musik, membaca novel, dan menikmati suasana yang tenang. Bagi saya, belajar adalah sebuah proses untuk terus bertumbuh, menemukan hal-hal baru, dan mengenal potensi diri.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+                        <div class="p-4 rounded-2xl bg-skybrand-50/80 border border-skybrand-100 flex items-start gap-3">
+                            <i class="fa-solid fa-heart text-skybrand-600 text-xl mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-slate-800 text-sm">Hobi</h4>
+                                <p class="text-xs text-slate-500 mt-0.5">Eksplorasi Desain, Musik, & Membaca</p>
+                            </div>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-skybrand-50/80 border border-skybrand-100 flex items-start gap-3">
+                            <i class="fa-solid fa-compass text-skybrand-600 text-xl mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-slate-800 text-sm">Minat</h4>
+                                <p class="text-xs text-slate-500 mt-0.5">Konsep UI/UX & Dasar Web Dev</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5">
+                    <div class="p-8 rounded-3xl bg-gradient-to-br from-skybrand-900 via-skybrand-800 to-indigo-900 text-white shadow-xl relative overflow-hidden">
+                        <i class="fa-solid fa-cloud absolute -bottom-8 -right-8 text-9xl text-white/10"></i>
+                        <div class="relative z-10 space-y-4">
+                            <div class="w-12 h-12 rounded-2xl bg-white/10 backdrop-blur-md flex items-center justify-center text-skybrand-300 text-2xl">
+                                <i class="fa-solid fa-lightbulb"></i>
+                            </div>
+                            <blockquote class="text-lg font-medium italic text-skybrand-50 text-justify">
+                                "Keberhasilan bukanlah milik orang yang pintar, keberhasilan adalah milik mereka yang senantiasa berusaha."
+                            </blockquote>
+                            <div class="pt-4 border-t border-white/15">
+                                <p class="font-bold text-white text-sm">B.J. Habibie</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PENGALAMAN & RIWAYAT PENDIDIKAN -->
+    <section id="Education" class="py-20 bg-skybrand-50/60 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-skybrand-600 mb-2">Jejak Langkah</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900">Education</h3>
+                <div class="w-16 h-1 bg-skybrand-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- Grid Cards Pendidikan -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <div onclick="openModal('tk')" class="cursor-pointer group bg-white p-6 rounded-3xl border border-skybrand-100 shadow-sm hover:shadow-xl hover:border-skybrand-400 transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 bg-skybrand-50 text-skybrand-600 border border-skybrand-200 rounded-full text-xs font-bold">2013-2014</span>
+                            <i class="fa-solid fa-child-reaching text-2xl text-slate-300 group-hover:text-skybrand-500 transition-colors"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-slate-800 group-hover:text-skybrand-600 transition-colors">TK Kartika XVII-07</h4>
+                        <p class="text-sm font-medium text-slate-500 mt-1">Taman Kanak-kanak</p>
+                        <p class="text-xs text-slate-400 mt-3 text-justify">Awal mengenal dunia bermain, sosialisasi, dan belajar dasar mewarnai serta membaca.</p>
+                    </div>
+            
+                </div>
+
+                <div onclick="openModal('sd')" class="cursor-pointer group bg-white p-6 rounded-3xl border border-skybrand-100 shadow-sm hover:shadow-xl hover:border-skybrand-400 transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 bg-skybrand-50 text-skybrand-600 border border-skybrand-200 rounded-full text-xs font-bold">2014 - 2020</span>
+                            <i class="fa-solid fa-school text-2xl text-slate-300 group-hover:text-skybrand-500 transition-colors"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-slate-800 group-hover:text-skybrand-600 transition-colors">SD Negeri 02 Anjongan</h4>
+                        <p class="text-sm font-medium text-slate-500 mt-1">Sekolah Dasar</p>
+                        <p class="text-xs text-slate-400 mt-3 text-justify">Membangun pengetahuan dasar dalam berbagai mata pelajaran, mengembangkan kemampuan berpikir, serta belajar bekerja sama melalui kegiatan sekolah.</p>
+                    </div>
+                </div>
+
+                <div onclick="openModal('smp')" class="cursor-pointer group bg-white p-6 rounded-3xl border border-skybrand-100 shadow-sm hover:shadow-xl hover:border-skybrand-400 transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 bg-skybrand-50 text-skybrand-600 border border-skybrand-200 rounded-full text-xs font-bold">2020 - 2023</span>
+                            <i class="fa-solid fa-shapes text-2xl text-slate-300 group-hover:text-skybrand-500 transition-colors"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-slate-800 group-hover:text-skybrand-600 transition-colors">SMP Negeri 01 Anjongan</h4>
+                        <p class="text-sm font-medium text-slate-500 mt-1">Sekolah Menengah Pertama</p>
+                        <p class="text-xs text-slate-400 mt-3 text-justify">Mengembangkan kemampuan akademik serta mengeksplorasi minat dan bakat melalui kegiatan sekolah.</p>
+                    </div>
+                
+                </div>
+
+                <div onclick="openModal('sma')" class="cursor-pointer group bg-white p-6 rounded-3xl border border-skybrand-100 shadow-sm hover:shadow-xl hover:border-skybrand-400 transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 bg-skybrand-50 text-skybrand-600 border border-skybrand-200 rounded-full text-xs font-bold">2023 - 2026</span>
+                            <i class="fa-solid fa-book-bookmark text-2xl text-slate-300 group-hover:text-skybrand-500 transition-colors"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-slate-800 group-hover:text-skybrand-600 transition-colors">SMA Negeri 01 Sungai Pinyuh</h4>
+                        <p class="text-sm font-medium text-slate-500 mt-1">Sekolah Menengah Atas (Kurikulum Merdeka)</p>
+                        <p class="text-xs text-slate-400 mt-3 text-justify">Menjalani pembelajaran dengan memilih mata pelajaran sesuai minat, yaitu Matematika, Fisika, Informatika, dan Bahasa Inggris. Pilihan ini membantu mengembangkan kemampuan berpikir logis, pemecahan masalah, serta ketertarikan pada teknologi dan pemrograman.</p>
+                    </div>
+                    
+                </div>
+
+                <div onclick="openModal('kuliah')" class="cursor-pointer group bg-gradient-to-br from-skybrand-600 to-indigo-700 p-6 rounded-3xl text-white shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-between md:col-span-2 lg:col-span-2 relative overflow-hidden">
+                    <i class="fa-solid fa-cloud absolute -right-6 -bottom-6 text-8xl text-white/10"></i>
+                    <div class="relative z-10">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 bg-white/20 text-white rounded-full text-xs font-bold backdrop-blur-md">2026 - Sekarang</span>
+                            <i class="fa-solid fa-university text-3xl text-white/80 group-hover:text-white transition-colors"></i>
+                        </div>
+                        <h4 class="text-2xl font-bold">Universitas Tanjungpura</h4>
+                        <p class="text-base text-skybrand-100 mt-1 font-medium">S1 Sistem Informasi</p>
+                        <p class="text-xs text-skybrand-100/90 mt-3 max-w-full text-justify ">
+                            Masih dalam tahap adaptasi dengan lingkungan perkuliahan dan proses pembelajaran di bidang Sistem Informasi. Mulai mempelajari dasar-dasar pemrograman, analisis sistem, serta desain antarmuka pengguna (UI/UX) sebagai langkah awal untuk mengembangkan keterampilan di bidang teknologi informasi..
+                        </p>
+                    </div>
+                    
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PROYEK / KARYA -->
+    <section id="Project" class="py-20 bg-white/90 backdrop-blur-md border-y border-skybrand-100 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-skybrand-600 mb-2">Eksplorasi Karya</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900">Proyek & Portofolio</h3>
+                <div class="w-16 h-1 bg-skybrand-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="max-w-4xl mx-auto bg-gradient-to-br from-skybrand-900 via-skybrand-800 to-indigo-950 rounded-3xl p-8 sm:p-12 text-center text-white shadow-2xl relative overflow-hidden">
+                <div class="absolute -right-8 -bottom-8 text-white/10 text-9xl">
+                    <i class="fa-solid fa-cloud"></i>
+                </div>
+
+                <div class="relative z-10 max-w-xl mx-auto space-y-6">
+                    <div class="w-16 h-16 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center mx-auto text-3xl text-skybrand-300">
+                        <i class="fa-solid fa-cloud-bolt"></i>
+                    </div>
+                    
+                    <h4 class="text-2xl sm:text-3xl font-extrabold">Proyek & Ide Kreatif Coming soon!</h4>
+                    
+                    <p class="text-skybrand-100 text-sm sm:text-base leading-relaxed">
+                        Saat ini saya sedang fokus mempelajari dasar-dasar pengembangan UI/UX, alur analisis sistem, dan pemrograman web interaktif.
+                    </p>
+
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/10 border border-white/15 text-xs text-skybrand-200 font-medium">
+                        <i class="fa-solid fa-code text-skybrand-300"></i> Sedang Dalam Tahap Pembelajaran
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<section id="Contact" class="py-12 bg-slate-900 text-white relative z-10 overflow-hidden">
+    <div class="max-w-full mx-auto px-6 sm:px-10 lg:px-20 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start justify-between">
+            
+            <!-- Sisi Kiri -->
+            <div class="lg:col-span-4 space-y-5">
+                <div>
+                    <h2 class="text-sm font-bold uppercase tracking-widest text-skybrand-400 mb-1">Terhubung</h2>
+                    <h3 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-2">
+                        Contact Me
+                    </h3>
+                </div>
+
+                <div class="space-y-4 text-base">
+                    <!-- Item Email -->
+                    <div class="flex items-center gap-4">
+                        <div class="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center text-skybrand-400 text-xl flex-shrink-0">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-slate-400 uppercase tracking-wider">Email</p>
+                            <p class="font-semibold text-slate-200 text-sm sm:text-base break-all">h1101261003@student.untan.ac.id</p>
+                        </div>
+                    </div>
+
+                    <!-- Item Lokasi -->
+                    <div class="flex items-center gap-4">
+                        <div class="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center text-skybrand-400 text-xl flex-shrink-0">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-slate-400 uppercase tracking-wider">Lokasi</p>
+                            <p class="font-semibold text-slate-200 text-sm sm:text-base">Kalimantan Barat, Indonesia</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bagian Sosial Media & Logo -->
+                <div class="pt-2">
+                    <p class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">Sosial Media</p>
+                    <div class="flex items-center gap-3">
+                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-xl bg-white/10 hover:bg-skybrand-500 flex items-center justify-center text-slate-300 hover:text-white transition-all">
+                            <i class="fa-brands fa-instagram text-xl"></i>
+                        </a>
+                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-xl bg-white/10 hover:bg-skybrand-500 flex items-center justify-center text-slate-300 hover:text-white transition-all">
+                            <i class="fa-brands fa-linkedin-in text-xl"></i>
+                        </a>
+                        <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-xl bg-white/10 hover:bg-skybrand-500 flex items-center justify-center text-slate-300 hover:text-white transition-all">
+                            <i class="fa-brands fa-github text-xl"></i>
+                        </a>
+                        <a href="mailto:h1101261003@student.untan.ac.id" class="w-11 h-11 rounded-xl bg-white/10 hover:bg-skybrand-500 flex items-center justify-center text-slate-300 hover:text-white transition-all" title="Kirim Email ke Novia">
+                            <i class="fa-solid fa-envelope text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sisi Kanan (Form) -->
+            <div class="lg:col-span-5 lg:col-end-13 bg-white/5 border border-white/10 p-5 sm:p-6 rounded-2xl backdrop-blur-md">
+                <form id="contact-form" class="space-y-3.5">
+                    <input type="hidden" id="access_key" value="cd6a4acc-bccc-4ff9-ade8-26e8aa8a089f">
+
+                    <div>
+                        <label for="name" class="block text-[11px] font-semibold text-slate-300 uppercase tracking-wider mb-1.5">Nama Lengkap</label>
+                        <input type="text" id="name" required placeholder="Masukkan nama Anda" class="w-full bg-slate-800/80 border border-slate-700 rounded-lg px-3.5 py-2 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-skybrand-400 transition-colors">
+                    </div>
+
+                    <div>
+                        <label for="email" class="block text-[11px] font-semibold text-slate-300 uppercase tracking-wider mb-1.5">Alamat Email</label>
+                        <input type="email" id="email" required placeholder="nama@email.com" class="w-full bg-slate-800/80 border border-slate-700 rounded-lg px-3.5 py-2 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-skybrand-400 transition-colors">
+                    </div>
+
+                    <div>
+                        <label for="message" class="block text-[11px] font-semibold text-slate-300 uppercase tracking-wider mb-1.5">Pesan Anda</label>
+                        <textarea id="message" rows="3" required placeholder="Tuliskan pesan Anda di sini..." class="w-full bg-slate-800/80 border border-slate-700 rounded-lg px-3.5 py-2 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-skybrand-400 transition-colors resize-none"></textarea>
+                    </div>
+
+                    <button type="submit" id="submit-btn" class="w-full bg-skybrand-600 hover:bg-skybrand-700 text-white font-semibold py-2.5 px-5 rounded-lg transition-all flex items-center justify-center gap-2 shadow-lg shadow-skybrand-500/25 text-sm">
+                        <i class="fa-solid fa-paper-plane text-xs"></i>
+                        <span>Kirim Pesan</span>
+                    </button>
+                </form>
+
+                <div id="form-alert" class="hidden mt-3 p-3 rounded-lg bg-emerald-500/20 border border-emerald-500/40 text-emerald-200 text-xs flex items-center gap-2.5">
+                    <i class="fa-solid fa-circle-check text-lg text-emerald-400"></i>
+                    <span>Terima kasih! Pesan Anda telah berhasil dikirim.</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script src="script.js" defer></script>
+
+</body>
+</html>

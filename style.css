@@ -1,0 +1,82 @@
+/* Glass Navbar Effect */
+        .glass-nav {
+            background: rgba(224, 242, 254, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        /* Large Fluffy Cloud Floating Animations */
+        @keyframes floatLeftCloud {
+            0%, 100% {
+                transform: translateY(0px) translateX(0px);
+            }
+            50% {
+                transform: translateY(-15px) translateX(10px);
+            }
+        }
+
+        @keyframes floatRightCloud {
+            0%, 100% {
+                transform: translateY(0px) translateX(0px);
+            }
+            50% {
+                transform: translateY(-18px) translateX(-12px);
+            }
+        }
+
+        .animate-cloud-left {
+            animation: floatLeftCloud 7s ease-in-out infinite;
+        }
+
+        .animate-cloud-right {
+            animation: floatRightCloud 8.5s ease-in-out infinite;
+        }
+
+        .modal-animate {
+            animation: modalFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.92) translateY(16px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        /* Custom Soft Blue Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #e0f2fe;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2167c3;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0284c7;
+        }
+
+        /* Animasi Letupan Megah Super Jumbo */
+        @keyframes cloudExplodeJumbo {
+            0% {
+                transform: scale(0) translate(0, 0);
+                opacity: 0;
+            }
+            15% {
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1.1) translate(var(--tw-x, 0), var(--tw-y, 0));
+                opacity: 0;
+            }
+        }
+
+        .animate-jumbo-explode {
+            animation: cloudExplodeJumbo 2.5s cubic-bezier(0.1, 0.8, 0.2, 1) infinite;
+        }
