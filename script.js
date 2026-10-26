@@ -179,19 +179,74 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ==========================================================================
-     4. INTERACTIVE CONTACT FORM SUBMISSION
+     4. CV PREVIEW MODAL
      ========================================================================== */
 
-  if (contactForm && formFeedback) {
-    contactForm.addEventListener('submit', (e) => {
+  function openCVModal() {
+    if (cvModal) {
+      cvModal.classList.add('active');
+      cvModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeCVModal() {
+    if (cvModal) {
+      cvModal.classList.remove('active');
+      cvModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+  }
+
+  if (btnDownloadCV) {
+    btnDownloadCV.addEventListener('click', openCVModal);
+  }
+  if (btnCloseModal) {
+    btnCloseModal.addEventListener('click', closeCVModal);
+  }
+  if (btnCancelModal) {
+    btnCancelModal.addEventListener('click', closeCVModal);
+  }
+  if (cvModal) {
+    cvModal.addEventListener('click', (e) => {
+      if (e.target === cvModal) {
+        closeCVModal();
+      }
+    });
+  }
+
+  // Close modal on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && cvModal && cvModal.classList.contains('active')) {
+      closeCVModal();
+    }
+  });
+
+  /* ==========================================================================
+     5. INTERACTIVE CONTACT FORM SUBMISSION (WEB3FORMS INTEGRATION)
+     ========================================================================== */
+
+  const form = contactForm || document.getElementById('form');
+
+  if (form) {
+    const submitBtn = form.querySelector('button[type="submit"]') || document.getElementById('btnSubmitMessage');
+    const originalBtnHtml = submitBtn ? submitBtn.innerHTML : '<span>Kirim Pesan Sekarang</span>';
+
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      const btnSubmit = document.getElementById('btnSubmitMessage');
-      const senderName = document.getElementById('senderName').value.trim();
+      const formData = new FormData(form);
+      formData.set("access_key", "cc003c11-afa4-4c8e-818c-257859370172");
 
-      if (btnSubmit) {
-        btnSubmit.disabled = true;
-        btnSubmit.innerHTML = `
+      const senderName = document.getElementById('senderName')?.value.trim() || formData.get('name') || '';
+      if (!formData.get('name') && senderName) {
+        formData.append('name', senderName);
+      }
+
+      // Button loading indicator
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = `
           <span>Mengirim Pesan...</span>
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="spin-animation">
             <line x1="12" y1="2" x2="12" y2="6"></line>
@@ -206,36 +261,65 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
       }
 
-      // Simulate sending delay with smooth feedback
-      setTimeout(() => {
-        formFeedback.className = 'form-feedback success';
-        formFeedback.innerHTML = `
-          🎉 Terima kasih, <strong>${senderName || 'Teman'}</strong>! Pesan Anda telah terkirim. Saya akan segera membalas ke email Anda.
-        `;
+      if (formFeedback) {
+        formFeedback.className = 'form-feedback info';
+        formFeedback.innerHTML = `<span>Sedang mengirim pesan Anda...</span>`;
+      }
 
-        contactForm.reset();
+      try {
+        const response = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          body: formData
+        });
 
-        if (btnSubmit) {
-          btnSubmit.disabled = false;
-          btnSubmit.innerHTML = `
-            <span>Kirim Pesan Sekarang</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="22" y1="2" x2="11" y2="13"></line>
-              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-            </svg>
-          `;
+        const data = await response.json();
+
+        if (response.ok && data.success) {
+          if (formFeedback) {
+            formFeedback.className = 'form-feedback success';
+            formFeedback.innerHTML = `
+              🎉 Terima kasih, <strong>${senderName || 'Teman'}</strong>! Pesan Anda berhasil dikirim ke email Novia.
+            `;
+          } else {
+            alert("Success! Your message has been sent.");
+          }
+          form.reset();
+        } else {
+          const errorMsg = data.message || "Gagal mengirim pesan.";
+          if (formFeedback) {
+            formFeedback.className = 'form-feedback error';
+            formFeedback.innerHTML = `⚠️ <strong>Error:</strong> ${errorMsg}`;
+          } else {
+            alert("Error: " + errorMsg);
+          }
+        }
+      } catch (error) {
+        console.error("Web3Forms error:", error);
+        if (formFeedback) {
+          formFeedback.className = 'form-feedback error';
+          formFeedback.innerHTML = `⚠️ Terjadi kendala saat mengirim pesan. Silakan periksa koneksi internet Anda dan coba lagi.`;
+        } else {
+          alert("Something went wrong. Please try again.");
+        }
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalBtnHtml;
         }
 
-        // Hide notification after 6 seconds
-        setTimeout(() => {
-          formFeedback.className = 'form-feedback hidden';
-        }, 6000);
-      }, 1000);
+        if (formFeedback) {
+          setTimeout(() => {
+            if (formFeedback.classList.contains('success')) {
+              formFeedback.className = 'form-feedback hidden';
+            }
+          }, 8000);
+        }
+      }
     });
   }
 
   /* ==========================================================================
-     5. BACK TO TOP BUTTON
+     6. BACK TO TOP BUTTON
      ========================================================================== */
 
   if (btnBackToTop) {
@@ -248,7 +332,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ==========================================================================
-     6. CARD TILT SHINE ON MOUSE MOVE
+     7. CARD TILT SHINE ON MOUSE MOVE
      ========================================================================== */
   
   const glowCards = document.querySelectorAll('.glow-card');

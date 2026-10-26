@@ -109,7 +109,7 @@
                 <div class="hero-visual-center">
                     <div class="portrait-glow-backdrop"></div>
                     <div class="portrait-frame">
-                        <img src="Assets/pt.png" alt="Novia Elza Nanda - Mahasiswa Sistem Informasi"
+                        <img src="./assets/profile.jpg" alt="Novia Elza Nanda - Mahasiswa Sistem Informasi"
                             class="portrait-img" id="heroPortrait">
                         <div class="portrait-overlay-gradient"></div>
                     </div>
@@ -267,55 +267,54 @@
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Hobbies & Personal Interests -->
-                <div class="about-hobbies-card glow-card full-width">
-                    <div class="card-icon-header">
-                        <div class="circle-icon-glow">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00e5ff"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polygon
-                                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                                </polygon>
-                            </svg>
+                    <!-- Hobbies & Personal Interests -->
+                    <div class="about-hobbies-card glow-card full-width">
+                        <div class="card-icon-header">
+                            <div class="circle-icon-glow">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00e5ff"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polygon
+                                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                                    </polygon>
+                                </svg>
+                            </div>
+                            <span class="card-badge">AKTIVITAS & HOBI</span>
                         </div>
-                        <span class="card-badge">AKTIVITAS & HOBI</span>
+
+                        <h3 class="card-heading">Aktivitas di Luar Perkuliahan</h3>
+                        <p class="card-paragraph" style="margin-bottom: 24px;">
+                            Menjaga keseimbangan antara belajar akademik dan hobi kreatif membantu saya tetap segar dan
+                            menemukan inspirasi baru:
+                        </p>
+
+                        <div class="hobbies-grid">
+                            <div class="hobby-item">
+                                <span class="hobby-emoji">💻</span>
+                                <span class="hobby-name">Coding & Problem Solving</span>
+                                <span class="hobby-desc">Mencoba studi kasus logika dan mencoba membuat mini project web
+                                    sederhana.</span>
+                            </div>
+                            <div class="hobby-item">
+                                <span class="hobby-emoji">📚</span>
+                                <span class="hobby-name">Membaca Novel</span>
+                                <span class="hobby-desc">Membaca novel fiksi ilmiah dan fantasi untuk hiburan.</span>
+                            </div>
+                            <div class="hobby-item">
+                                <span class="hobby-emoji">🎮</span>
+                                <span class="hobby-name">Strategy & Gaming</span>
+                                <span class="hobby-desc">Mengasah ketangkasan berpikir taktis dan koordinasi tim secara
+                                    online.</span>
+                            </div>
+                            <div class="hobby-item">
+                                <span class="hobby-emoji">☕</span>
+                                <span class="hobby-name">Diskusi & Kopi</span>
+                                <span class="hobby-desc">Bertukar ide dan berdiskusi bersama teman.</span>
+                            </div>
+                        </div>
                     </div>
 
-                    <h3 class="card-heading">Aktivitas di Luar Perkuliahan</h3>
-                    <p class="card-paragraph" style="margin-bottom: 24px;">
-                        Menjaga keseimbangan antara belajar akademik dan hobi kreatif membantu saya tetap segar dan
-                        menemukan inspirasi baru:
-                    </p>
-
-                    <div class="hobbies-grid">
-                        <div class="hobby-item">
-                            <span class="hobby-emoji">💻</span>
-                            <span class="hobby-name">Coding & Problem Solving</span>
-                            <span class="hobby-desc">Mencoba studi kasus logika dan mencoba membuat mini project web
-                                sederhana.</span>
-                        </div>
-                        <div class="hobby-item">
-                            <span class="hobby-emoji">📚</span>
-                            <span class="hobby-name">Membaca Novel</span>
-                            <span class="hobby-desc">Membaca novel fiksi ilmiah dan fantasi untuk hiburan.</span>
-                        </div>
-                        <div class="hobby-item">
-                            <span class="hobby-emoji">🎮</span>
-                            <span class="hobby-name">Strategy & Gaming</span>
-                            <span class="hobby-desc">Mengasah ketangkasan berpikir taktis dan koordinasi tim secara
-                                online.</span>
-                        </div>
-                        <div class="hobby-item">
-                            <span class="hobby-emoji">☕</span>
-                            <span class="hobby-name">Diskusi & Kopi</span>
-                            <span class="hobby-desc">Bertukar ide dan berdiskusi bersama teman.</span>
-                        </div>
-                    </div>
                 </div>
-
-            </div>
 
             </div>
         </section>
@@ -581,27 +580,32 @@
                                 formulir interaktif ini:</p>
 
                             <form id="contactForm" class="styled-contact-form">
+                                <!-- Web3Forms Access Key & Settings -->
+                                <input type="hidden" name="access_key" value="cc003c11-afa4-4c8e-818c-257859370172">
+                                <input type="hidden" name="from_name" value="Portofolio ImNoelle">
+                                <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
                                 <div class="form-group">
                                     <label for="senderName">Nama Lengkap</label>
-                                    <input type="text" id="senderName" name="senderName"
-                                        placeholder="Contoh: Budi Santoso" required>
+                                    <input type="text" id="senderName" name="name" placeholder="Contoh: Budi Santoso"
+                                        required>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="senderEmail">Alamat Email</label>
-                                    <input type="email" id="senderEmail" name="senderEmail" placeholder="nama@email.com"
+                                    <input type="email" id="senderEmail" name="email" placeholder="nama@email.com"
                                         required>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="messageSubject">Subjek / Topik</label>
-                                    <input type="text" id="messageSubject" name="messageSubject"
+                                    <input type="text" id="messageSubject" name="subject"
                                         placeholder="Misal: Diskusi Proyek Web / Belajar IT Bersama" required>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="messageBody">Isi Pesan</label>
-                                    <textarea id="messageBody" name="messageBody" rows="4"
+                                    <textarea id="messageBody" name="message" rows="4"
                                         placeholder="Tuliskan pesan Anda di sini..." required></textarea>
                                 </div>
 
